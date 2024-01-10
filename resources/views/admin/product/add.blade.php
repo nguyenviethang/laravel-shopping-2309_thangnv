@@ -13,7 +13,7 @@
 
 @push('javascripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script> 
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
     <script>
         new MultiSelectTag('color_id', {
             rounded: true,    // default true
@@ -75,7 +75,7 @@
                     $('#sale_price').prop('disabled', true);
                 }
             });
-            
+
         });
     </script>
 @endpush
@@ -85,6 +85,34 @@
         <div class="col-sm-12 col-md-12">
             <h5 class="text-center"> Add Products !</h5>
             <a href="{{ route('admin.products') }}" class="btn btn-primary my-3"> Back to list products</a>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if (Session::has('error_sale_price'))
+                <div class="alert alert-danger">
+                    <p class="mb-0">{{ Session::get('error_sale_price') }}</p>
+                </div>
+            @endif
+
+            @if (Session::has('error_image_product'))
+                <div class="alert alert-danger">
+                    <p class="mb-0">{{ Session::get('error_image_product') }}</p>
+                </div>
+            @endif
+
+            @if (Session::has('error_image_product'))
+                <div class="alert alert-danger">
+                    <p class="mb-0">{{ Session::get('error_image_product') }}</p>
+                </div>
+            @endif
 
             <form class="border p-3" action="{{ route('admin.product.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -127,7 +155,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Image gallery (choose multiple image)</label>
-                            <input type="file" name="image" class="form-control" multiple />
+                            <input type="file" name="image[]" class="form-control" multiple />
                         </div>
                         <div class="mb-3">
                             <label>Status</label>
