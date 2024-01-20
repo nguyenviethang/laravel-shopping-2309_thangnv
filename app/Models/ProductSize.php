@@ -10,5 +10,5 @@ class ProductSize extends Model
     use HasFactory;
 
     protected $table = 'product_size';
-    protected  $fillable = ['product_id', 'size_id', 'created_at', 'updated_at'];
+    protected $fillable = ['product_id', 'size_id', 'created_at', 'updated_at'];
 }

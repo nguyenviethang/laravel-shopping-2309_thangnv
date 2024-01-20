@@ -13,7 +13,7 @@
 
 @push('javascripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script> 
     <script>
         new MultiSelectTag('color_id', {
             rounded: true,    // default true
@@ -75,7 +75,7 @@
                     $('#sale_price').prop('disabled', true);
                 }
             });
-
+            
         });
     </script>
 @endpush
@@ -108,9 +108,9 @@
                 </div>
             @endif
 
-            @if (Session::has('error_image_product'))
+            @if (Session::has('error_insert_product'))
                 <div class="alert alert-danger">
-                    <p class="mb-0">{{ Session::get('error_image_product') }}</p>
+                    <p class="mb-0">{{ Session::get('error_insert_product') }}</p>
                 </div>
             @endif
 

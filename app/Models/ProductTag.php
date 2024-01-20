@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductTag extends Model
 {
     use HasFactory;
+
     protected $table = 'product_tag';
     protected $fillable = ['product_id', 'tag_id', 'created_at', 'updated_at'];
 }
